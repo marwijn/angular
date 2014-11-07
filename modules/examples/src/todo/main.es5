@@ -1,1 +1,11 @@
-new (System.get("examples/todo/app").App)().run();
+System.baseURL = '/';
+
+System.map['examples/lib/todo/app'] = 'examples\\lib\\todo\\app';
+System.map['facade/dom'] = 'facade\\lib\\dom';
+System.map['rtts_assert/rtts_assert'] = 'rtts_assert\\lib\\rtts_assert';
+System.map['facade/collection'] = 'facade\\lib\\collection';
+
+System.import("examples/lib/todo/app")
+	.then(function(appModule){
+		new appModule.App().run();
+	});
